@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.contentValuesOf
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import java.io.IOException
@@ -41,6 +42,10 @@ class MainActivity : AppCompatActivity()
                 put("price", 19.95)
             }
             db.insert("Book", null, values2) // 插入第二条数据
+            //可以通过ktx里面优化的方式来输入数据,用类似mapOf的方法定义
+            val values = contentValuesOf("name" to "Game of Thrones", "author" to "George Martin",
+                "pages" to 720, "price" to 20.85)
+
         }
         //更新数据
         val updateData=findViewById<Button>(R.id.updateData)

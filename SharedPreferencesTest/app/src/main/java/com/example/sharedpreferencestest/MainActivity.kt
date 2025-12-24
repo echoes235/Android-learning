@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.edit
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
@@ -22,6 +23,13 @@ class MainActivity : AppCompatActivity()
             editor.putString("name","Tom")
             editor.putBoolean("married",false)
             editor.apply()
+            //使用高阶函数优化后
+            getSharedPreferences("data", Context.MODE_PRIVATE).edit{
+                putInt("age",28)
+                putString("name","Tom")
+                putBoolean("married",false)
+            }
+            //KTX扩展库已经加入了这个功能,直接(open换成edit)调用edit就行
         }
         val restoreButton=findViewById<Button>(R.id.restoreButton)
         restoreButton.setOnClickListener {
