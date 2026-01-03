@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <!--
+    See https://developer.android.com/about/versions/12/backup-restore#xml-changes
+    for more details on device-to-device transfer and configuring your application
+    for data extraction
+    -->
+    <cloud-backup>
+        <!-- Use this flag to enable or disable cloud backup of your application. -->
+        <include domain="sharedpref" path="."/>
+        <exclude domain="sharedpref" path="device.xml"/>
+    </cloud-backup>
+</data-extraction-rules>
